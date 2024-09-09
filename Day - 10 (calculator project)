@@ -1,0 +1,58 @@
+import art
+    return n1 + n2
+
+def subtract(n1,n2):
+    """This function is used to subtract t the two inputs"""
+
+    return n1 - n2
+
+def multiply(n1,n2):
+    """This function is used to multiply the two inputs"""
+
+    return n1 * n2
+
+def divide(n1,n2):
+    """This function is used to divide t the two inputs"""
+
+    return n1 / n2
+
+operations = {
+    "+":add,
+    "-":subtract,
+    "*":multiply,
+    "/":divide
+}
+# print(operations["*"](n1=1,n2=2))
+# print(operations["+"](n1=4,n2=9))
+def calculator():
+    print(art.logo)
+    num1 = float(input("what's the first number: "))
+
+    exec_operation = True
+    while exec_operation:
+
+        for symbol in operations:
+            print(symbol)
+
+def add(n1, n2):
+    """This function is used to add t the two inputs"""
+
+
+        operational_symbol = input("pick an operation: ")
+
+        num2 = float(input("what's the second number: "))
+
+        result = operations[operational_symbol](n1=num1, n2=num2)
+        print(f"{num1} {operational_symbol}  {num2} = {result}")
+        decision = input("Do you want to continue operation with the result 'y' or 'n'").lower()
+        if decision == "y":
+            num1 = result
+        else:
+            exec_operation = False
+            calculator()
+
+
+calculator()
+
+
+
