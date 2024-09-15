@@ -1,0 +1,57 @@
+
+from turtle import Turtle , Screen
+import random
+
+tim = Turtle(shape="turtle")
+jim = Turtle(shape="turtle")
+bim = Turtle(shape="turtle")
+gim = Turtle(shape="turtle")
+dim = Turtle(shape="turtle")
+kim = Turtle(shape="turtle")
+screen = Screen()
+
+screen.setup(height=400,width=500)
+user_bet = screen.textinput(title = "make your bet" , prompt= "which turtle will win the race, enter a color? :")
+
+tim.color("red")
+tim.penup()
+tim.goto(x=-230 , y=-100)
+
+kim.color("green")
+kim.penup()
+kim.goto(x=-230 , y=-75)
+
+dim.color("pink")
+dim.penup()
+dim.goto(x=-230 , y=-50)
+
+gim.color("blue")
+gim.penup()
+gim.goto(x=-230 , y=-25)
+
+bim.color("brown")
+bim.penup()
+bim.goto(x=-230 , y=0)
+
+jim.color("yellow")
+jim.penup()
+jim.goto(x=-230 , y=25)
+turtles = [jim , bim , tim , kim , dim , gim]
+
+race = False
+
+if user_bet:
+    race =True
+
+while race:
+    for tur in turtles:
+        rand_distance = random.randint(0, 10)
+        tur.forward(rand_distance)
+        if tur.xcor() > 230:
+            race = False
+            if tur.pencolor() == user_bet:
+                print(f"The winner is {tur.pendown()} turtle , you have won the bet")
+            else:
+                print(f"you have lost the bet , the winner is {tur.pencolor()}")
+
+screen.exitonclick()
